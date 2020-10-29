@@ -20,14 +20,7 @@ const bird = document.getElementById('birdGif');
 bird.style.left = left + 'rem';
 
 
-/**
- * Gets a random number for the height of the frog
- * @param {number} topPos 
- */
-function randomTop() {
-    topRandom = Math.floor(Math.random() * 80);
-    console.log(topRandom);
-}
+
 
 /**
  * the functions that makes the bird fly around, starts onload
@@ -39,11 +32,13 @@ function startBird() {
  * interval functions to get the bird moving smoothly 
  */
 function fly() {
-    setInterval(moveTheBird, 5);
+    setInterval(moveTheBird, 2);
 }
 /**
  * the movement pattern of the bird
  */
+
+ 
 function moveTheBird() {
     if (left > 100) {
         moveRight = false;
@@ -61,7 +56,7 @@ function moveTheBird() {
     } else {
         left -= .1;
     }
-    
+    topRandom = Math.floor(Math.random() * 80);
     bird.style.left = left + '%';
     bird.style.top = topPos + '%';
 }
