@@ -1,0 +1,7 @@
+.bird {
+    position: fixed;
+    width: 10rem;
+}
+.flip {
+    transform: scaleX(-1);
+}
