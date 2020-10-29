@@ -1,6 +1,14 @@
 window.onload = startBird;
 let moveRight = true;
 
+
+
+/**
+ * Counter for laps
+ */
+let counter = 0;
+
+
 /**
  * the left value for the css of the frog
  */
@@ -32,7 +40,7 @@ function startBird() {
  * interval functions to get the bird moving smoothly 
  */
 function fly() {
-    setInterval(moveTheBird, 2);
+    setInterval(moveTheBird, 1);
 }
 /**
  * the movement pattern of the bird
@@ -44,12 +52,18 @@ function moveTheBird() {
         moveRight = false;
         bird.classList.remove('flip');
         topPos = topRandom;
+        counter++;
+        laps();
+        
     }
     
     if (left < -18) {
         moveRight = true;
         bird.classList.add('flip');
         topPos = topRandom;
+        counter++;
+        console.log(counter);
+        laps();
     }
     if (moveRight) {
         left += .1;
@@ -59,5 +73,10 @@ function moveTheBird() {
     topRandom = Math.floor(Math.random() * 80);
     bird.style.left = left + '%';
     bird.style.top = topPos + '%';
+}
+
+function laps(){
+    document.getElementById("counterP").innerHTML = counter;
+    
 }
 
